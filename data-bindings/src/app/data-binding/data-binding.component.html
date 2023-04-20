@@ -71,6 +71,7 @@
     <h2>Input/Output properties</h2>
     <div class="col-lg-12">
       <app-input-property [nomeDoCurso]="nomeDoCurso"></app-input-property>
+      <app-output-property (valorAtualEventEmitter)="mudouValorContador($event)"></app-output-property>
     </div>
   </article>
 </section>

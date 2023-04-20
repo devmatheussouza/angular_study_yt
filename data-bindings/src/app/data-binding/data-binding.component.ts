@@ -30,4 +30,8 @@ export class DataBindingComponent implements OnInit {
     console.log(valorInput.value);
     valorInput.value = "";
   }
+
+  mudouValorContador(valorContador: number) {
+    console.log(`Valor do contador mudou para ${valorContador}`);
+  }
 }
