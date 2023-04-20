@@ -74,4 +74,13 @@
       <app-output-property (valorAtualEventEmitter)="mudouValorContador($event)"></app-output-property>
     </div>
   </article>
+
+  <article class="row my-3">
+    <h2>@ViewChild</h2>
+    <div class="col-lg-12 mb-3 d-flex flex-row flex-wrap align-items-center">
+      <label for="teste" class="me-3 fw-bold fs-5">Teste:</label>
+      <input #inputTeste type="text" name="teste" class="h-100" />
+      <button class="btn btn-primary ms-3" (click)="valorTesteComViewChild()">Click</button>
+    </div>
+  </article>
 </section>
