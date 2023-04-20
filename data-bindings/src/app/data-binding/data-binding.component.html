@@ -38,4 +38,12 @@
       <p class="alert alert-danger">Esse texto só aparece em caso de erro!</p>
     </div>
   </article>
+
+  <article class="row my-3">
+    <h3>Event binding</h3>
+    <div class="col-xs-12">
+      <input type="text" #valorInput />
+      <button class="btn btn-primary" (click)="onClick(valorInput.value)">Click</button>
+    </div>
+  </article>
 </section>

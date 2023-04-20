@@ -17,4 +17,8 @@ export class DataBindingComponent implements OnInit {
   getValor() {
     return this.valor;
   }
+
+  onClick(valorInput: string) {
+    console.log(valorInput);
+  }
 }
