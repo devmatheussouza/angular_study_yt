@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Pessoa } from "./interfaces/pessoa.interface";
 
 @Component({
   selector: "app-data-binding",
@@ -10,6 +11,11 @@ export class DataBindingComponent implements OnInit {
   urlImagem: string = "https://picsum.photos/200/300";
   private valor: number = Math.random() * 100;
 
+  pessoa: Pessoa = {
+    nome: "",
+    idade: 0,
+  };
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,7 +24,8 @@ export class DataBindingComponent implements OnInit {
     return this.valor;
   }
 
-  onClick(valorInput: string) {
-    console.log(valorInput);
+  onClick(valorInput: HTMLInputElement) {
+    console.log(valorInput.value);
+    valorInput.value = "";
   }
 }
