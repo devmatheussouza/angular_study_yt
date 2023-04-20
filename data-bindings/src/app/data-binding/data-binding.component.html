@@ -1,18 +1,41 @@
-<section class="property-binding">
-  <article>
-    <h3>Interpolação</h3>
-    <p>
-      String renderizada com Interpolação:
-      <a href="{{ url }}" target="_blank">Google</a>
-    </p>
+<section class="container">
+  <article class="row my-3">
+    <div class="col-xs-12">
+      <h3>Interpolação</h3>
+      <p>
+        String renderizada com Interpolação:
+        <a href="{{ url }}" target="_blank">Google</a>
+      </p>
 
-    <p>Resultado da expressão 3 * 15 = {{ 3 * 15 }}</p>
+      <p>Resultado da expressão 3 * 15 = {{ 3 * 15 }}</p>
 
-    <p>Buscando valor de um método: {{ getValor() }}</p>
+      <p>Buscando valor de um método: {{ getValor() }}</p>
+    </div>
   </article>
 
-  <article>
-    <h3>Property Binding</h3>
-    <img [src]="urlImagem" />
+  <article class="row my-3">
+    <div class="col-xs-12">
+      <h3>Property Binding</h3>
+      <img [src]="urlImagem" />
+    </div>
+  </article>
+
+  <article class="row my-3">
+    <h3>Class Binding e Style Binding</h3>
+    <div class="col-xs-12">
+      Selecione uma classe:
+      <select class="my-3" #classeVariavel (change)="(0)">
+        <option value="alert-success">Sucesso</option>
+        <option value="alert-danger">Erro</option>
+        <option value="alert-warning">Aviso</option>
+        <option value="alert-info">Info</option>
+      </select>
+
+      <p class="alert {{ classeVariavel.value }}" role="alert">Classe selecionada: {{ classeVariavel.value }}</p>
+    </div>
+
+    <div class="col-xs-12" [style]="{ display: classeVariavel.value === 'alert-danger' ? 'block' : 'none' }">
+      <p class="alert alert-danger">Esse texto só aparece em caso de erro!</p>
+    </div>
   </article>
 </section>
