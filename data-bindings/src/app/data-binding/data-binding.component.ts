@@ -11,6 +11,8 @@ export class DataBindingComponent implements OnInit {
   urlImagem: string = "https://picsum.photos/200/300";
   private valor: number = Math.random() * 100;
 
+  nomeDoCurso: string = "Angular";
+
   pessoa: Pessoa = {
     nome: "",
     idade: 0,

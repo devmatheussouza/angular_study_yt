@@ -63,7 +63,14 @@
       <input [(ngModel)]="pessoa.idade" class="me-3" type="number" name="idade" min="0" max="100" />
     </div>
 
-    <p>Nome: {{ pessoa.nome }}</p>
-    <p>Idade: {{ pessoa.idade }}</p>
+    <span>Nome: {{ pessoa.nome }}</span>
+    <span>Idade: {{ pessoa.idade }}</span>
+  </article>
+
+  <article class="row my-3">
+    <h2>Input/Output properties</h2>
+    <div class="col-lg-12">
+      <app-input-property [nomeDoCurso]="nomeDoCurso"></app-input-property>
+    </div>
   </article>
 </section>
