@@ -1,0 +1,33 @@
+<div class="row">
+  <h1>Diretiva *ngIf</h1>
+  <div class="col-lg-12" *ngIf="listaCursos.length > 0 && mostrarCursos; else naoMostrarCursos">
+    <ul>
+      <li class="fw-bold" *ngFor="let curso of listaCursos; index as i">Curso {{ i + 1 }}: {{ curso }}</li>
+    </ul>
+  </div>
+  <ng-template #naoMostrarCursos>
+    <div>
+      <p
+        class="alert alert-danger w-25 text-center fw-bold"
+        role="alert"
+        *ngIf="listaCursos.length > 0; else naoHaCursos"
+      >
+        Proibido ver os cursos!
+      </p>
+      <ng-template #naoHaCursos>
+        <p>Não há cursos cadastrados!</p>
+      </ng-template>
+    </div>
+  </ng-template>
+
+  <div class="col-lg-12 d-flex flex-row flex-wrap align-items-center">
+    <label for="novoCurso" class="me-3 fs-5">Nome:</label>
+    <input class="me-3 h-100" type="text" name="novoCurso" #inputNovoCurso />
+    <button class="btn btn-primary" (click)="onNovoCurso(inputNovoCurso)">Novo curso</button>
+  </div>
+
+  <div class="col-lg-12 my-3">
+    <button class="btn btn-info me-3" [hidden]="mostrarCursos" (click)="onMostrarCurso()">Mostrar cursos</button>
+    <button class="btn btn-warning" [hidden]="!mostrarCursos" (click)="onMostrarCurso()">Esconder cursos</button>
+  </div>
+</div>
