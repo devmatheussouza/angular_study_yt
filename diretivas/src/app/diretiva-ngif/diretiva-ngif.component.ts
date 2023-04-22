@@ -14,8 +14,10 @@ export class DiretivaNgifComponent implements OnInit {
   ngOnInit(): void {}
 
   onNovoCurso(inputNovoCurso: HTMLInputElement) {
-    this.listaCursos.push(inputNovoCurso.value);
-    inputNovoCurso.value = "";
+    if (inputNovoCurso.value !== "") {
+      this.listaCursos.push(inputNovoCurso.value);
+      inputNovoCurso.value = "";
+    }
   }
 
   onMostrarCurso() {
