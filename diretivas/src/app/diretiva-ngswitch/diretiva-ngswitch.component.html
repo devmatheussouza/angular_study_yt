@@ -1,0 +1,42 @@
+<h2>Diretivas [ngSwitch] / *ngSwitchCase / *ngSwitchDefault</h2>
+
+<nav class="navbar navbar-expand-lg bg-dark w-75" data-bs-theme="dark">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a
+          class="nav-link links-abas-navbar"
+          aria-current="page"
+          [ngClass]="{ active: abaAtiva === 'home' }"
+          (click)="abaAtiva = 'home'"
+          >Home</a
+        >
+        <a class="nav-link links-abas-navbar" [ngClass]="{ active: abaAtiva === 'mapa' }" (click)="abaAtiva = 'mapa'"
+          >Mapa</a
+        >
+        <a class="nav-link links-abas-navbar" [ngClass]="{ active: abaAtiva === 'lista' }" (click)="abaAtiva = 'lista'"
+          >Lista</a
+        >
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="col-lg-12 p-3" [ngSwitch]="abaAtiva">
+    <p *ngSwitchCase="'mapa'">Aba Mapa está ativa!</p>
+    <p *ngSwitchCase="'lista'">Aba Lista está ativa!</p>
+    <p *ngSwitchDefault>Home está ativo!</p>
+  </div>
+</div>
