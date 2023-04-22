@@ -1,0 +1,9 @@
+<h2>Diretiva *ngFor</h2>
+
+<div class="row">
+  <div class="col-lg-12">
+    <ul>
+      <li *ngFor="let curso of listaCursos; let i = index">Curso {{ i + 1 }}: {{ curso }}</li>
+    </ul>
+  </div>
+</div>
