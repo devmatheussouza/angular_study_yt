@@ -8,6 +8,7 @@ import { DiretivaNgforComponent } from "./diretiva-ngfor/diretiva-ngfor.componen
 import { DiretivaNgclassComponent } from "./diretiva-ngclass/diretiva-ngclass.component";
 import { DiretivaNgstyleComponent } from "./diretiva-ngstyle/diretiva-ngstyle.component";
 import { FormsModule } from "@angular/forms";
+import { ExemploNgcontentComponent } from './exemplo-ngcontent/exemplo-ngcontent.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from "@angular/forms";
     DiretivaNgforComponent,
     DiretivaNgclassComponent,
     DiretivaNgstyleComponent,
+    ExemploNgcontentComponent,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [],
