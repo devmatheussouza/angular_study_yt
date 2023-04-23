@@ -1,0 +1,12 @@
+<h2>Diretiva [ngClass]</h2>
+
+<div class="row">
+  <div class="col-lg-12">
+    <i
+      class="bi fs-1 text-info me-3"
+      [ngClass]="{ 'bi-star-fill': meuFavorito, 'bi-star': !meuFavorito }"
+      style="cursor: pointer"
+      (click)="favoritar()"
+    ></i>
+  </div>
+</div>
