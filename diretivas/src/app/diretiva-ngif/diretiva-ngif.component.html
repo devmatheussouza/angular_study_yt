@@ -1,5 +1,5 @@
 <div class="row">
-  <h1>Diretiva *ngIf</h1>
+  <h2>Diretiva *ngIf</h2>
   <div class="col-lg-12" *ngIf="listaCursos.length > 0 && mostrarCursos; else naoMostrarCursos">
     <ul>
       <li class="fw-bold" *ngFor="let curso of listaCursos; index as i">Curso {{ i + 1 }}: {{ curso }}</li>
