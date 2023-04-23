@@ -1,0 +1,20 @@
+<h2>Diretiva [ngStyle]</h2>
+
+<div class="row">
+  <div class="col-lg-12">
+    <label class="fs-5 fw-bold" for="inputTamanhoFonte">Tamanho da fonte</label>
+    <input class="d-block" type="number" name="inputTamanhoFonte" min="10" max="100" [(ngModel)]="tamanhoFonte" />
+    <button
+      class="btn my-3"
+      [ngStyle]="{
+        'font-weight': ativo ? 'bold' : 'normal',
+        'font-size': tamanhoFonte + 'px',
+        'background-color': ativo ? 'black' : 'green',
+        color: ativo ? 'white' : 'black'
+      }"
+      (click)="onClick()"
+    >
+      Mudar atributo 'ativo'
+    </button>
+  </div>
+</div>
