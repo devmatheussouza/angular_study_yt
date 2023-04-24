@@ -3,16 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { ExemplosPipesComponent } from './exemplos-pipes/exemplos-pipes.component';
+import { PascalCasePipe } from './pipes/pascal-case.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ExemplosPipesComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent, ExemplosPipesComponent, PascalCasePipe],
+  imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
