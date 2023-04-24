@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'filtroArray',
+  pure: true,
 })
 export class FiltroArrayPipe implements PipeTransform {
   transform(array: any[], arg: any): any[] {

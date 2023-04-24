@@ -10,6 +10,7 @@ import { PascalCasePipe } from './pipes/pascal-case.pipe';
 import { SettingsService } from './services/settings.service';
 import { FiltroArrayPipe } from './pipes/filtro-array.pipe';
 import { FormsModule } from '@angular/forms';
+import { FiltroArrayImpuroPipe } from './pipes/filtro-array-impuro.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     ExemplosPipesComponent,
     PascalCasePipe,
     FiltroArrayPipe,
+    FiltroArrayImpuroPipe,
   ],
   imports: [BrowserModule, FormsModule],
   providers: [
