@@ -1,5 +1,5 @@
 <div class="row">
-  <h2 class="mb-4">Exemplos de Pipes</h2>
+  <h2 class="mb-4">Pipes</h2>
   <div class="d-flex flex-row flex-wrap align-items-center">
     <div
       *ngFor="let livro of listaLivros; let i = index"
@@ -35,5 +35,34 @@
         >
       </div>
     </div>
+  </div>
+</div>
+
+<hr />
+<br />
+
+<div class="row">
+  <h2 class="mb-4">
+    Pipe puro (Pipe de filtro) -> NÃO FAZER EM PROJETOS REAIS
+  </h2>
+  <div class="col-lg-12">
+    <div class="mb-3 d-flex flex-row flex-wrap align-items-center">
+      <label class="me-3" for="novoCurso">Novo curso:</label>
+      <input class="me-3" type="text" name="novoCurso" #inputNovoCurso />
+      <button class="btn btn-primary" (click)="addCurso(inputNovoCurso)">
+        Adicionar curso
+      </button>
+    </div>
+    <div class="my-3">
+      <label class="me-3" for="inputFiltro">Filtrar por nome do curso:</label>
+      <input type="text" name="inputFiltro" [(ngModel)]="filtro" />
+    </div>
+    <ul>
+      <li
+        *ngFor="let curso of listaCursos | filtroArray : filtro; let i = index"
+      >
+        {{ curso }}
+      </li>
+    </ul>
   </div>
 </div>

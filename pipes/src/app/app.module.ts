@@ -8,10 +8,17 @@ import { AppComponent } from './app.component';
 import { ExemplosPipesComponent } from './exemplos-pipes/exemplos-pipes.component';
 import { PascalCasePipe } from './pipes/pascal-case.pipe';
 import { SettingsService } from './services/settings.service';
+import { FiltroArrayPipe } from './pipes/filtro-array.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, ExemplosPipesComponent, PascalCasePipe],
-  imports: [BrowserModule],
+  declarations: [
+    AppComponent,
+    ExemplosPipesComponent,
+    PascalCasePipe,
+    FiltroArrayPipe,
+  ],
+  imports: [BrowserModule, FormsModule],
   providers: [
     /*{
       provide: LOCALE_ID,

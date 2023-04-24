@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-exemplos-pipes',
@@ -30,7 +30,25 @@ export class ExemplosPipesComponent implements OnInit {
     },
   ];
 
+  listaCursos: string[] = [
+    'Java',
+    'Angular',
+    'Typescript',
+    'MySQL',
+    'Javascript',
+  ];
+
+  filtro: string = '';
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  addCurso(inputNovoCurso: HTMLInputElement) {
+    const novoCurso: string = inputNovoCurso.value.trim();
+    if (inputNovoCurso.value.length > 0 && novoCurso !== '')
+      this.listaCursos.push(inputNovoCurso.value);
+    inputNovoCurso.value = '';
+    console.log(this.listaCursos);
+  }
 }
