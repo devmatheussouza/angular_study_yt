@@ -4,7 +4,13 @@ import { Injectable } from "@angular/core";
   providedIn: "root",
 })
 export class CursosService {
+  private _listaCursos: string[] = ["Java", "Angular", "MySQL"];
+
   getCursos() {
-    return ["Java", "Angular", "MySQL"];
+    return this._listaCursos;
+  }
+
+  addCurso(novoCurso: string) {
+    this._listaCursos.push(novoCurso);
   }
 }
