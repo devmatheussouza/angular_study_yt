@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
+import { interval, map } from "rxjs";
 
 @Component({
   selector: "app-exemplos-pipes",
@@ -33,6 +34,13 @@ export class ExemplosPipesComponent implements OnInit {
   listaCursos: string[] = ["Java", "Angular", "Typescript", "MySQL", "Javascript"];
 
   filtro: string = "";
+
+  valorAsync = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Valor async"), 2000);
+  });
+
+  // rxjs
+  valorAsync2 = interval(2000).pipe(map((_) => "Valor async 2"));
 
   constructor() {}
 

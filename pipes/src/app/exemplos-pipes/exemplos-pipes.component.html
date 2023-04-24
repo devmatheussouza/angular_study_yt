@@ -30,7 +30,7 @@
 
 <div class="row">
   <h2 class="mb-4">Pipes de filtro -> NÃO FAZER EM PROJETOS REAIS (ruim para performance)</h2>
-  <div class="col-lg-12">
+  <div class="col-sm-12">
     <div class="mb-3 d-flex flex-row flex-wrap align-items-center">
       <label class="me-3" for="novoCurso">Novo curso:</label>
       <input class="me-3" type="text" name="novoCurso" #inputNovoCurso />
@@ -61,15 +61,25 @@
       </div>
     </div>
   </div>
+
+  <div class="col-sm-12">
+    <h2>Maneira correta de fazer filtro em projetos (via método)</h2>
+    <div class="col-lg-12">
+      <ul>
+        <li *ngFor="let curso of obterCursosComFiltro(); let i = index">
+          {{ curso }}
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
+<hr />
+<br />
 <div class="row">
-  <h2>Maneira correta de fazer filtro em projetos (via método)</h2>
-  <div class="col-lg-12">
-    <ul>
-      <li *ngFor="let curso of obterCursosComFiltro(); let i = index">
-        {{ curso }}
-      </li>
-    </ul>
+  <h2>Pipe Async</h2>
+  <div class="col-sm-12">
+    <p>Valor assíncrono com Promise: {{ valorAsync | async }}</p>
+    <p>Valor assíncrono com Observable (rxjs): {{ valorAsync2 | async }}</p>
   </div>
 </div>
