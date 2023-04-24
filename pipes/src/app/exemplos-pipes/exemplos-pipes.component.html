@@ -1,0 +1,36 @@
+<div class="row">
+  <h2 class="mb-4">Exemplos de Pipes</h2>
+  <div class="d-flex flex-row flex-wrap align-items-center">
+    <div
+      *ngFor="let livro of listaLivros; let i = index"
+      class="card me-3"
+      style="width: 20rem"
+    >
+      <img
+        [src]="livro.urlImagem"
+        class="card-img-top rounded"
+        alt="Laranja mecânica"
+        height="300px"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ livro.titulo | uppercase | lowercase }}</h5>
+        <ul>
+          <li class="card-text">
+            Avaliação: {{ livro.rating | number : "1.1-1" }}
+          </li>
+          <li class="card-text">Páginas: {{ livro.numeroPaginas | number }}</li>
+          <li class="card-text">Preço: {{ livro.preco | currency : "BRL" }}</li>
+          <li class="card-text">
+            Data de publicação: {{ livro.dataPublicacao | date : "dd-MMM-yyyy"}
+          </li>
+          <li class="card-text">Formato: {{ livro.formato }}</li>
+        </ul>
+
+        <p class="fw-bold">Livro {{ i + 1 }}: {{ livro | json }}</p>
+        <a [href]="livro.url" class="btn btn-primary" target="_blank"
+          >Ver o livro</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
