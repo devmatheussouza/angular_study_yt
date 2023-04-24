@@ -24,7 +24,7 @@
           <li class="card-text">Preço: {{ livro.preco | currency : "BRL" }}</li>
           <li class="card-text">
             Data de publicação:
-            {{ livro.dataPublicacao | date : "dd-MMM-yyyy" }}
+            {{ livro.dataPublicacao | date : "dd MMMM yyyy" }}
           </li>
           <li class="card-text">Formato: {{ livro.formato }}</li>
         </ul>
