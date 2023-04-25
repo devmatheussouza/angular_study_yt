@@ -1,1 +1,14 @@
-<p>cursos works!</p>
+<div class="row">
+  <h2 class="mb-3">Lista de Cursos</h2>
+  <div class="col-sm-12">
+    <div class="list-group w-50">
+      <a
+        [routerLink]="['/curso', curso.id]"
+        class="list-group-item list-group-item-action list-group-item-secondary"
+        *ngFor="let curso of listaCursos; let i = index"
+      >
+        {{ curso.nome }}
+      </a>
+    </div>
+  </div>
+</div>

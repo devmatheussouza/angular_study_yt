@@ -9,9 +9,10 @@ import { LoginComponent } from "./components/login/login.component";
 import { CursosComponent } from "./components/cursos/cursos.component";
 import { routing } from "./app.routing";
 import { CursoDetalheComponent } from './components/curso-detalhe/curso-detalhe.component';
+import { CursoNaoEncontradoComponent } from './components/curso-nao-encontrado/curso-nao-encontrado.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, CursosComponent, CursoDetalheComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, CursosComponent, CursoDetalheComponent, CursoNaoEncontradoComponent],
   imports: [BrowserModule, BrowserAnimationsModule, MatSliderModule, routing],
   providers: [],
   bootstrap: [AppComponent],
