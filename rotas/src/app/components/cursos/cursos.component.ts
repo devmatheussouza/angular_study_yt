@@ -15,6 +15,8 @@ export class CursosComponent implements OnInit, OnDestroy {
   pagina: number = 1;
   inscricaoPagina: Subscription;
   quantidadeCursos: number = 0;
+  quantidadePaginas: number = 0;
+  TAMANHO_PAGINA: number = 0;
 
   constructor(private cursoService: CursoService, private route: ActivatedRoute) {}
 
@@ -24,6 +26,8 @@ export class CursosComponent implements OnInit, OnDestroy {
     );
     this.listaCursos = this.cursoService.getCursos();
     this.quantidadeCursos = this.listaCursos.length;
+    this.TAMANHO_PAGINA = CursoService.CURSOS_POR_PAGINA;
+    this.quantidadePaginas = Math.floor(this.listaCursos.length / this.TAMANHO_PAGINA);
   }
 
   ngOnDestroy(): void {
@@ -32,20 +36,14 @@ export class CursosComponent implements OnInit, OnDestroy {
 
   proximaPagina() {
     this.pagina++;
-    this.listaCursos = this.listaPaginada();
   }
 
   paginaAnterior() {
-    if (this.pagina > 1) {
-      this.pagina--;
-      this.listaCursos = this.listaPaginada();
-    }
+    if (this.pagina > 1) this.pagina--;
   }
 
   listaPaginada() {
     const pagina = this.pagina - 1;
-    return this.cursoService
-      .getCursos()
-      .slice(pagina * CursoService.CURSOS_POR_PAGINA, (pagina + 1) * CursoService.CURSOS_POR_PAGINA);
+    return this.cursoService.getCursos().slice(pagina * this.TAMANHO_PAGINA, (pagina + 1) * this.TAMANHO_PAGINA);
   }
 }

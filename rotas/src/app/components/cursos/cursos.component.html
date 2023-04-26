@@ -12,13 +12,9 @@
     </div>
     <div class="row">
       <div class="col-sm-12 d-flex flex-row align-items-center">
-        <i class="bi bi-arrow-left-circle-fill fs-4" (click)="paginaAnterior()"></i>
+        <i *ngIf="pagina > 1" class="bi bi-arrow-left-circle-fill fs-4" (click)="paginaAnterior()"></i>
         <small class="px-3"> Página: {{ pagina }}</small>
-        <i
-          *ngIf="pagina <= listaCursos.length / 3"
-          class="fs-4 bi bi-arrow-right-circle-fill"
-          (click)="proximaPagina()"
-        ></i>
+        <i *ngIf="pagina < quantidadePaginas" class="fs-4 bi bi-arrow-right-circle-fill" (click)="proximaPagina()"></i>
       </div>
     </div>
   </div>

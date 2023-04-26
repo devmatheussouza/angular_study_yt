@@ -17,6 +17,9 @@ export class CursoService {
       { id: 4, nome: "Javascript" },
       { id: 5, nome: "MySQL" },
       { id: 6, nome: "Spring" },
+      { id: 7, nome: "C++" },
+      { id: 8, nome: "PHP" },
+      { id: 9, nome: "React" },
     ];
   }
 
