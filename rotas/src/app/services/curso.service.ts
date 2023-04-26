@@ -5,6 +5,8 @@ import { Curso } from "../interfaces/curso.interface";
   providedIn: "root",
 })
 export class CursoService {
+  static CURSOS_POR_PAGINA: number = 3;
+
   constructor() {}
 
   getCursos(): Curso[] {
@@ -12,6 +14,9 @@ export class CursoService {
       { id: 1, nome: "Java" },
       { id: 2, nome: "Angular" },
       { id: 3, nome: "Typescript" },
+      { id: 4, nome: "Javascript" },
+      { id: 5, nome: "MySQL" },
+      { id: 6, nome: "Spring" },
     ];
   }
 

@@ -1,14 +1,25 @@
+<h2 class="mb-3">Lista de Cursos</h2>
 <div class="row">
-  <h2 class="mb-3">Lista de Cursos</h2>
   <div class="col-sm-12">
-    <div class="list-group w-50">
+    <div class="list-group w-50 mb-3">
       <a
         [routerLink]="['/curso', curso.id]"
         class="list-group-item list-group-item-action list-group-item-secondary"
-        *ngFor="let curso of listaCursos; let i = index"
+        *ngFor="let curso of listaPaginada(); let i = index"
       >
         {{ curso.nome }}
       </a>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 d-flex flex-row align-items-center">
+        <i class="bi bi-arrow-left-circle-fill fs-4" (click)="paginaAnterior()"></i>
+        <small class="px-3"> Página: {{ pagina }}</small>
+        <i
+          *ngIf="pagina <= listaCursos.length / 3"
+          class="fs-4 bi bi-arrow-right-circle-fill"
+          (click)="proximaPagina()"
+        ></i>
+      </div>
     </div>
   </div>
 </div>
