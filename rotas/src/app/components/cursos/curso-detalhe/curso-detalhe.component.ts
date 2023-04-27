@@ -1,5 +1,4 @@
-import { OnDestroy } from "@angular/core";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 
 import { Subscription } from "rxjs";
@@ -26,7 +25,7 @@ export class CursoDetalheComponent implements OnInit, OnDestroy {
       this.curso = this.cursoService.getCursoById(this.id);
 
       if (!this.curso) {
-        this.router.navigate(["/naoEncontrado"]);
+        this.router.navigate(["/cursos/naoEncontrado"]);
       }
     });
   }

@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-import { Subscription } from "rxjs";
 import { Curso } from "src/app/interfaces/curso.interface";
 import { CursoService } from "src/app/services/curso.service";
 
@@ -13,7 +12,7 @@ import { CursoService } from "src/app/services/curso.service";
 export class CursosComponent implements OnInit, OnDestroy {
   listaCursos: Curso[];
   pagina: number = 1;
-  inscricaoPagina: Subscription;
+  // inscricaoPagina: Subscription;
   quantidadeCursos: number = 0;
   quantidadePaginas: number = 0;
   TAMANHO_PAGINA: number = 0;
@@ -21,9 +20,10 @@ export class CursosComponent implements OnInit, OnDestroy {
   constructor(private cursoService: CursoService, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.inscricaoPagina = this.route.queryParams.subscribe(
-      (queryParams: any) => (this.pagina = queryParams["pagina"])
-    );
+    // this.inscricaoPagina = this.route.queryParams.subscribe(
+    //   (queryParams: any) => (this.pagina = queryParams["pagina"])
+    // );
+
     this.listaCursos = this.cursoService.getCursos();
     this.quantidadeCursos = this.listaCursos.length;
     this.TAMANHO_PAGINA = CursoService.CURSOS_POR_PAGINA;
@@ -31,7 +31,7 @@ export class CursosComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.inscricaoPagina.unsubscribe();
+    // this.inscricaoPagina.unsubscribe();
   }
 
   proximaPagina() {
