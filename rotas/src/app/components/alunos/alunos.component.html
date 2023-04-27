@@ -1,2 +1,35 @@
-<p>alunos works!</p>
-<router-outlet></router-outlet>
+<div class="row">
+  <div class="col-md-6">
+    <h2 class="mb-3">Lista de Alunos</h2>
+    <div class="list-group w-75 mb-3">
+      <a
+        [routerLink]="[aluno.id]"
+        class="list-group-item list-group-item-action list-group-item-secondary"
+        *ngFor="let aluno of listaPaginada(); let i = index"
+      >
+        {{ aluno.nome }}
+      </a>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 d-flex flex-row align-items-center">
+        <i
+          *ngIf="pagina > 1"
+          class="bi bi-arrow-left-circle-fill fs-4"
+          style="cursor: pointer"
+          (click)="paginaAnterior()"
+        ></i>
+        <small class="px-3"> Página: {{ pagina }}</small>
+        <i
+          *ngIf="pagina < quantidadePaginas"
+          class="fs-4 bi bi-arrow-right-circle-fill"
+          style="cursor: pointer"
+          (click)="proximaPagina()"
+        ></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <router-outlet></router-outlet>
+  </div>
+</div>

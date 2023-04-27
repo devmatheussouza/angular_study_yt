@@ -1,9 +1,11 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
-import { AlunosComponent } from "./alunos.component";
-import { AlunoFormComponent } from "./aluno-form/aluno-form.component";
+import { AlunoAtualizadoComponent } from "./aluno-atualizado/aluno-atualizado.component";
 import { AlunoDetalheComponent } from "./aluno-detalhe/aluno-detalhe.component";
+import { AlunoFormComponent } from "./aluno-form/aluno-form.component";
+import { AlunoNaoEncontradoComponent } from "./aluno-nao-encontrado/aluno-nao-encontrado.component";
+import { AlunosComponent } from "./alunos.component";
 
 const ALUNOS_ROUTES: Routes = [
   {
@@ -11,6 +13,8 @@ const ALUNOS_ROUTES: Routes = [
     component: AlunosComponent,
     children: [
       { path: "novo", component: AlunoFormComponent },
+      { path: "naoEncontrado", component: AlunoNaoEncontradoComponent },
+      { path: "atualizado", component: AlunoAtualizadoComponent },
       { path: ":id", component: AlunoDetalheComponent },
       { path: ":id/editar", component: AlunoFormComponent },
     ],

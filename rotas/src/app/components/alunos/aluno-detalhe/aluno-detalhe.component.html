@@ -1,1 +1,7 @@
-<p>aluno-detalhe works!</p>
+<div>
+  <h2>Detalhes do Aluno</h2>
+  <p><span class="fw-bold">ID: </span>{{ aluno?.id }}</p>
+  <p><span class="fw-bold">Nome: </span> {{ aluno?.nome }}</p>
+  <p><span class="fw-bold">Email: </span> {{ aluno?.email }}</p>
+  <button class="btn btn-warning" (click)="editarAluno()">Editar</button>
+</div>
