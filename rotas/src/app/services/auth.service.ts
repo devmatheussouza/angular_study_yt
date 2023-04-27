@@ -7,12 +7,12 @@ import { Usuario } from "../interfaces/usuario.interface";
   providedIn: "root",
 })
 export class AuthService {
-  public usuarioAutenticado: boolean = false;
+  private usuarioAutenticado: boolean = false;
   public mostrarMenuEventEmitter = new EventEmitter<boolean>();
 
   constructor(private router: Router) {}
 
-  fazerLogin(usuario: Usuario) {
+  fazerLogin(usuario: Usuario): void {
     if (usuario.email === "admin@email.com" && usuario.password === "admin") {
       this.usuarioAutenticado = true;
       this.mostrarMenuEventEmitter.emit(this.usuarioAutenticado);
@@ -21,5 +21,9 @@ export class AuthService {
       this.usuarioAutenticado = false;
       this.mostrarMenuEventEmitter.emit(false);
     }
+  }
+
+  isUsuarioAutenticado(): boolean {
+    return this.usuarioAutenticado;
   }
 }
