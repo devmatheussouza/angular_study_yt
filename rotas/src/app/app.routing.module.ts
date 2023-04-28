@@ -4,12 +4,14 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
 import { AuthGuard } from "./guards/auth.guard";
+import { CursosGuard } from "./guards/cursos.guard";
 
 const APP_ROUTES: Routes = [
   // Lazy Loading (carregamento sob demanda)
   {
     path: "cursos",
     canActivate: [AuthGuard],
+    canActivateChild: [CursosGuard],
     loadChildren: () => import("./components/cursos/cursos.module").then((m) => m.CursosModule),
   },
   {
