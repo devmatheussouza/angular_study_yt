@@ -1,11 +1,15 @@
-<form>
+<h1 class="mb-3">Template Driven Form</h1>
+
+<form #form="ngForm" (ngSubmit)="onSubmitForm(form)">
   <div class="form-group mb-3">
     <label for="nome" class="form-label fw-bold">Nome</label>
     <input
       type="text"
       class="form-control w-50"
       id="nome"
+      name="nome"
       placeholder="Digite seu nome"
+      ngModel
     />
   </div>
 
@@ -15,7 +19,11 @@
       type="text"
       class="form-control w-50"
       id="email"
+      name="email"
       placeholder="exemplo@email.com"
+      ngModel
     />
   </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
