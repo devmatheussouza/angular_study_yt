@@ -8,9 +8,10 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app.routing.module";
 import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
+import { PaginaNaoEncontradaComponent } from "./components/pagina-nao-encontrada/pagina-nao-encontrada.component";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, PaginaNaoEncontradaComponent],
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatSliderModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
