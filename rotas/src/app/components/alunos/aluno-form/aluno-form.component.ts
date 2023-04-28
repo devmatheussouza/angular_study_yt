@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 
-import { Subscription } from "rxjs";
+import { Observable, Subscription } from "rxjs";
 import { Aluno } from "src/app/interfaces/aluno.interface";
+import { FormCanDeactivate } from "src/app/interfaces/form-candeactivate.interface";
 import { AlunoService } from "src/app/services/aluno.service";
 
 @Component({
@@ -10,7 +11,7 @@ import { AlunoService } from "src/app/services/aluno.service";
   templateUrl: "./aluno-form.component.html",
   styleUrls: ["./aluno-form.component.scss"],
 })
-export class AlunoFormComponent implements OnInit {
+export class AlunoFormComponent implements OnInit, FormCanDeactivate {
   inscricao: Subscription;
   id: string = "";
   aluno: Aluno;
@@ -52,7 +53,7 @@ export class AlunoFormComponent implements OnInit {
     this.formMudou = true;
   }
 
-  podeMudarRota(): boolean {
+  podeDesativarRota(): Observable<boolean> | Promise<boolean> | boolean {
     if (this.formMudou) return confirm("Tem certeza que deseja sair dessa página?");
     return true;
   }
