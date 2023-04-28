@@ -7,17 +7,16 @@ import { AppComponent } from './app.component';
 import { DataFormComponent } from './components/data-form/data-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada/pagina-nao-encontrada.component';
-import { TemplateFormComponent } from './components/template-form/template-form.component';
+import { TemplateFormModule } from './components/template-form/template-form.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TemplateFormComponent,
     DataFormComponent,
     HomeComponent,
     PaginaNaoEncontradaComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, TemplateFormModule],
   providers: [],
   bootstrap: [AppComponent],
 })
