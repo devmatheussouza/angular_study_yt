@@ -16,6 +16,7 @@ const APP_ROUTES: Routes = [
     canLoad: [AuthGuard],
     loadChildren: () => import("./components/cursos/cursos.module").then((m) => m.CursosModule),
   },
+  // Lazy Loading (carregamento sob demanda)
   {
     path: "alunos",
     canActivate: [AuthGuard],
@@ -29,7 +30,7 @@ const APP_ROUTES: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(APP_ROUTES)],
+  imports: [RouterModule.forRoot(APP_ROUTES, { useHash: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
