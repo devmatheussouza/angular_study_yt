@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
+import { AlunoDetalheResolver } from "src/app/guards/aluno-detalhe.resolver";
 import { AlunosDeactivateGuard } from "src/app/guards/alunos-deactivate.guard";
 import { AlunosGuard } from "src/app/guards/alunos.guard";
 import { AlunoAtualizadoComponent } from "./aluno-atualizado/aluno-atualizado.component";
@@ -18,7 +19,7 @@ const ALUNOS_ROUTES: Routes = [
       { path: "novo", component: AlunoFormComponent },
       { path: "naoEncontrado", component: AlunoNaoEncontradoComponent },
       { path: "atualizado", component: AlunoAtualizadoComponent },
-      { path: ":id", component: AlunoDetalheComponent },
+      { path: ":id", component: AlunoDetalheComponent, resolve: { aluno: AlunoDetalheResolver } },
       { path: ":id/editar", component: AlunoFormComponent, canDeactivate: [AlunosDeactivateGuard] },
     ],
   },
@@ -27,6 +28,6 @@ const ALUNOS_ROUTES: Routes = [
 @NgModule({
   imports: [RouterModule.forChild(ALUNOS_ROUTES)],
   exports: [RouterModule],
-  providers: [AlunosGuard, AlunosDeactivateGuard],
+  providers: [AlunosGuard, AlunosDeactivateGuard, AlunoDetalheResolver],
 })
 export class AlunosRoutingModule {}

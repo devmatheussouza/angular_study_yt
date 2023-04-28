@@ -12,18 +12,21 @@ import { AlunoService } from "src/app/services/aluno.service";
 })
 export class AlunoDetalheComponent implements OnInit, OnDestroy {
   inscricao: Subscription;
-  id: string = "";
+  // id: string = "";
   aluno: Aluno;
 
   constructor(private alunoService: AlunoService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe((params: any) => {
-      this.id = params["id"];
-      this.aluno = this.alunoService.getAlunoById(this.id);
+    // this.inscricao = this.activatedRoute.params.subscribe((params: any) => {
+    //   this.id = params["id"];
+    //   this.aluno = this.alunoService.getAlunoById(this.id);
 
-      if (!this.aluno) this.router.navigate(["alunos/naoEncontrado"]);
-    });
+    //   if (!this.aluno) this.router.navigate(["alunos/naoEncontrado"]);
+    // });
+
+    this.inscricao = this.activatedRoute.data.subscribe((dados: { aluno: Aluno }) => (this.aluno = dados.aluno));
+    if (!this.aluno) this.router.navigate(["alunos/naoEncontrado"]);
   }
 
   ngOnDestroy(): void {
@@ -31,6 +34,6 @@ export class AlunoDetalheComponent implements OnInit, OnDestroy {
   }
 
   editarAluno() {
-    this.router.navigate([`alunos/${this.id}/editar`]);
+    this.router.navigate([`alunos/${this.aluno?.id}/editar`]);
   }
 }
