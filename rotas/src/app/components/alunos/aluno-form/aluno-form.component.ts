@@ -18,6 +18,8 @@ export class AlunoFormComponent implements OnInit {
   inputNome: string = "";
   inputEmail: string = "";
 
+  formMudou: boolean = false;
+
   constructor(private alunoService: AlunoService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
@@ -44,5 +46,14 @@ export class AlunoFormComponent implements OnInit {
     this.id = "";
 
     this.router.navigate(["/alunos/atualizado"]);
+  }
+
+  onInput() {
+    this.formMudou = true;
+  }
+
+  podeMudarRota(): boolean {
+    if (this.formMudou) return confirm("Tem certeza que deseja sair dessa página?");
+    return true;
   }
 }

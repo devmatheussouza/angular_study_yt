@@ -7,7 +7,7 @@ import { Observable } from "rxjs";
 })
 export class CursosGuard implements CanActivateChild {
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-    console.log("guarda de rota filha");
+    // console.log("guarda de rota filha");
     return true;
   }
 }
