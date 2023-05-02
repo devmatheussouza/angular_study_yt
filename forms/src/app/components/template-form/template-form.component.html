@@ -1,6 +1,10 @@
 <h1 class="mb-3">Template Driven Form</h1>
 
-<form #form="ngForm" (ngSubmit)="onSubmitForm(form)">
+<form
+  #form="ngForm"
+  [ngClass]="{ 'was-validated': form.submitted }"
+  (ngSubmit)="onSubmitForm(form)"
+>
   <div class="form-group mb-3">
     <label for="nome" class="form-label fw-bold">Nome</label>
     <input
@@ -9,13 +13,12 @@
       id="nome"
       name="nome"
       placeholder="Digite seu nome"
-      ngModel
       required
-      #inputNome
+      minlength="3"
+      ngModel
+      #inputNome="ngModel"
     />
-    <!-- <div>
-      {{ inputNome.className }}
-    </div> -->
+    <div class="invalid-feedback">Nome é obrigatório!</div>
   </div>
 
   <div class="form-group mb-3">
@@ -28,8 +31,15 @@
       placeholder="exemplo@email.com"
       ngModel
       required
-      email
+      pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
+      #inputEmail="ngModel"
     />
+    <div class="invalid-feedback" *ngIf="inputEmail.errors?.['pattern']">
+      Email inválido!
+    </div>
+    <div class="invalid-feedback" *ngIf="inputEmail.errors?.['required']">
+      Email é obrigatório!
+    </div>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
