@@ -5,45 +5,208 @@
   [ngClass]="{ 'was-validated': form.submitted }"
   (ngSubmit)="onSubmitForm(form)"
 >
-  <div class="form-group mb-3">
-    <label for="nome" class="form-label fw-bold">Nome</label>
-    <input
-      type="text"
-      class="form-control w-50"
-      id="nome"
-      name="nome"
-      placeholder="Digite seu nome"
-      required
-      ngModel
-      #inputNome="ngModel"
-    />
-    <div class="invalid-feedback" *ngIf="inputNome.errors?.['required']">
-      Nome é obrigatório!
+  <div class="form-group row mb-3">
+    <div class="col-sm-12">
+      <label for="nome" class="form-label fw-bold">Nome*</label>
+    </div>
+
+    <div class="col-sm-12">
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        name="nome"
+        placeholder="Digite seu nome"
+        required
+        ngModel
+        #inputNome="ngModel"
+      />
+      <div class="invalid-feedback" *ngIf="inputNome.errors?.['required']">
+        Nome é obrigatório!
+      </div>
     </div>
   </div>
 
-  <div class="form-group mb-3">
-    <label for="email" class="form-label fw-bold">Email</label>
-    <input
-      type="text"
-      class="form-control w-50"
-      id="email"
-      name="email"
-      placeholder="exemplo@email.com"
-      ngModel
-      required
-      pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
-      #inputEmail="ngModel"
-    />
-    <div class="invalid-feedback" *ngIf="inputEmail.errors?.['pattern']">
-      Email inválido!
+  <div class="form-group row mb-3">
+    <div class="col-sm-12">
+      <label for="email" class="form-label fw-bold">Email*</label>
     </div>
-    <div class="invalid-feedback" *ngIf="inputEmail.errors?.['required']">
-      Email é obrigatório!
+
+    <div class="col-sm-12">
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="exemplo@email.com"
+        ngModel
+        required
+        pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
+        #inputEmail="ngModel"
+      />
+      <div class="invalid-feedback" *ngIf="inputEmail.errors?.['pattern']">
+        Email inválido!
+      </div>
+      <div class="invalid-feedback" *ngIf="inputEmail.errors?.['required']">
+        Email é obrigatório!
+      </div>
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary" [disabled]="!form.valid">
-    Submit
-  </button>
+  <div class="form-group row mb-3">
+    <div class="col-md-3">
+      <div class="col-sm-12">
+        <label for="cep" class="form-label fw-bold">CEP*</label>
+      </div>
+
+      <div class="col-sm-12">
+        <input
+          class="form-control"
+          type="text"
+          name="cep"
+          id="cep"
+          required
+          minlength="8"
+          maxlength="8"
+          ngModel
+          #inputCep="ngModel"
+        />
+        <div class="invalid-feedback" *ngIf="inputCep.errors?.['required']">
+          CEP é obrigatório!
+        </div>
+        <div class="invalid-feedback" *ngIf="inputCep.errors?.['minlength']">
+          CEP inválido!
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="col-sm-12">
+        <label for="numero" class="form-label fw-bold">Número*</label>
+      </div>
+
+      <div class="col-sm-12">
+        <input
+          class="form-control"
+          type="text"
+          name="numero"
+          id="numero"
+          required
+          ngModel
+          #inputNumero="ngModel"
+        />
+        <div class="invalid-feedback" *ngIf="inputNumero.errors?.['required']">
+          Número é obrigatório!
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="col-sm-12">
+        <label for="complemento" class="form-label fw-bold">Complemento</label>
+      </div>
+
+      <div class="col-sm-12">
+        <input
+          class="form-control"
+          type="text"
+          name="complemento"
+          id="complemento"
+          ngModel
+          #inputComplemento="ngModel"
+        />
+        <div class="valid-feedback">Ok!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3">
+    <div class="col-sm-12">
+      <label for="rua" class="form-label fw-bold">Rua*</label>
+    </div>
+
+    <div class="col-sm-12">
+      <input
+        type="text"
+        class="form-control"
+        id="rua"
+        name="rua"
+        required
+        ngModel
+        #inputRua="ngModel"
+      />
+      <div class="invalid-feedback" *ngIf="inputRua.errors?.['required']">
+        Rua é obrigatório!
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row mb-3">
+    <div class="col-md-5">
+      <div class="col-sm-12">
+        <label for="bairro" class="form-label fw-bold">Bairro*</label>
+      </div>
+
+      <div class="col-sm-12">
+        <input
+          class="form-control"
+          type="text"
+          name="bairro"
+          id="bairro"
+          required
+          ngModel
+          #inputBairro="ngModel"
+        />
+        <div class="invalid-feedback" *ngIf="inputBairro.errors?.['required']">
+          Bairro é obrigatório!
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="col-sm-12">
+        <label for="cidade" class="form-label fw-bold">Cidade*</label>
+      </div>
+
+      <div class="col-sm-12">
+        <input
+          class="form-control"
+          type="text"
+          name="cidade"
+          id="cidade"
+          required
+          ngModel
+          #inputCidade="ngModel"
+        />
+        <div class="invalid-feedback" *ngIf="inputCidade.errors?.['required']">
+          Cidade é obrigatório!
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="col-sm-12">
+        <label for="estado" class="form-label fw-bold">Estado*</label>
+      </div>
+
+      <div class="col-sm-12">
+        <input
+          class="form-control"
+          type="text"
+          name="estado"
+          id="estado"
+          ngModel
+          required
+          minlength="2"
+          maxlength="2"
+          #inputEstado="ngModel"
+        />
+        <div class="invalid-feedback" *ngIf="inputEstado.errors?.['required']">
+          Estado é obrigatório!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Enviar</button>
 </form>
