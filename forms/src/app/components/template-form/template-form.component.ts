@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm, NgModelGroup } from '@angular/forms';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-template-form',
@@ -9,7 +11,7 @@ import { NgForm, NgModelGroup } from '@angular/forms';
 export class TemplateFormComponent implements OnInit {
   @ViewChild('endereco') endereco: NgModelGroup;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
 
@@ -22,5 +24,24 @@ export class TemplateFormComponent implements OnInit {
         ' '
       )}`
     );
+  }
+
+  consultaCEP(cep: string): void {
+    // Retira dígitos que não sejam números
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != '') {
+      if (this.validaCEP(cep)) {
+        this.http
+          .get(`//viacep.com.br/ws/${cep}/json`)
+          .pipe(map((dados: any) => dados))
+          .subscribe((dadosJson: any) => console.log(dadosJson));
+      }
+    }
+  }
+
+  validaCEP(cep: string): boolean {
+    const validacao = /^[0-9]{8}$/;
+    return validacao.test(cep);
   }
 }

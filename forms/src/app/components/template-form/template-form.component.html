@@ -71,6 +71,7 @@
             maxlength="8"
             ngModel
             #inputCep="ngModel"
+            (blur)="consultaCEP(inputCep.value)"
           />
           <div class="invalid-feedback" *ngIf="inputCep.errors?.['required']">
             CEP é obrigatório!
