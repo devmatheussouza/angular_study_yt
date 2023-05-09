@@ -19,9 +19,9 @@
         placeholder="Digite seu nome"
         required
         ngModel
-        #inputNome="ngModel"
+        #nome="ngModel"
       />
-      <div class="invalid-feedback" *ngIf="inputNome.errors?.['required']">
+      <div class="invalid-feedback" *ngIf="nome.errors?.['required']">
         Nome é obrigatório!
       </div>
     </div>
@@ -42,12 +42,12 @@
         ngModel
         required
         pattern="[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+(\.[-a-zA-Z0-9~!$%^&amp;*_=+}{'?]+)*@([a-zA-Z0-9_][-a-zA-Z0-9_]*(\.[-a-zA-Z0-9_]+)*\.([cC][oO][mM]))(:[0-9]{1,5})?"
-        #inputEmail="ngModel"
+        #email="ngModel"
       />
-      <div class="invalid-feedback" *ngIf="inputEmail.errors?.['pattern']">
+      <div class="invalid-feedback" *ngIf="email.errors?.['pattern']">
         Email inválido!
       </div>
-      <div class="invalid-feedback" *ngIf="inputEmail.errors?.['required']">
+      <div class="invalid-feedback" *ngIf="email.errors?.['required']">
         Email é obrigatório!
       </div>
     </div>
@@ -70,13 +70,13 @@
             minlength="8"
             maxlength="8"
             ngModel
-            #inputCep="ngModel"
-            (blur)="consultaCEP(inputCep.value)"
+            #cep="ngModel"
+            (blur)="consultaCEP(cep.value, form)"
           />
-          <div class="invalid-feedback" *ngIf="inputCep.errors?.['required']">
+          <div class="invalid-feedback" *ngIf="cep.errors?.['required']">
             CEP é obrigatório!
           </div>
-          <div class="invalid-feedback" *ngIf="inputCep.errors?.['minlength']">
+          <div class="invalid-feedback" *ngIf="cep.errors?.['minlength']">
             CEP inválido!
           </div>
         </div>
@@ -95,12 +95,9 @@
             id="numero"
             required
             ngModel
-            #inputNumero="ngModel"
+            #numero="ngModel"
           />
-          <div
-            class="invalid-feedback"
-            *ngIf="inputNumero.errors?.['required']"
-          >
+          <div class="invalid-feedback" *ngIf="numero.errors?.['required']">
             Número é obrigatório!
           </div>
         </div>
@@ -120,7 +117,7 @@
             name="complemento"
             id="complemento"
             ngModel
-            #inputComplemento="ngModel"
+            #complemento="ngModel"
           />
           <div class="valid-feedback">Ok!</div>
         </div>
@@ -140,9 +137,9 @@
           name="rua"
           required
           ngModel
-          #inputRua="ngModel"
+          #rua="ngModel"
         />
-        <div class="invalid-feedback" *ngIf="inputRua.errors?.['required']">
+        <div class="invalid-feedback" *ngIf="rua.errors?.['required']">
           Rua é obrigatório!
         </div>
       </div>
@@ -162,12 +159,9 @@
             id="bairro"
             required
             ngModel
-            #inputBairro="ngModel"
+            #bairro="ngModel"
           />
-          <div
-            class="invalid-feedback"
-            *ngIf="inputBairro.errors?.['required']"
-          >
+          <div class="invalid-feedback" *ngIf="bairro.errors?.['required']">
             Bairro é obrigatório!
           </div>
         </div>
@@ -186,12 +180,9 @@
             id="cidade"
             required
             ngModel
-            #inputCidade="ngModel"
+            #cidade="ngModel"
           />
-          <div
-            class="invalid-feedback"
-            *ngIf="inputCidade.errors?.['required']"
-          >
+          <div class="invalid-feedback" *ngIf="cidade.errors?.['required']">
             Cidade é obrigatório!
           </div>
         </div>
@@ -212,12 +203,9 @@
             required
             minlength="2"
             maxlength="2"
-            #inputEstado="ngModel"
+            #estado="ngModel"
           />
-          <div
-            class="invalid-feedback"
-            *ngIf="inputEstado.errors?.['required']"
-          >
+          <div class="invalid-feedback" *ngIf="estado.errors?.['required']">
             Estado é obrigatório!
           </div>
         </div>

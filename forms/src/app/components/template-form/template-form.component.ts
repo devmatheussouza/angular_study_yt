@@ -26,16 +26,17 @@ export class TemplateFormComponent implements OnInit {
     );
   }
 
-  consultaCEP(cep: string): void {
+  consultaCEP(cep: string, form: NgForm): void {
     // Retira dígitos que não sejam números
-    cep = cep.replace(/\D/g, '');
+    cep = cep ? cep.replace(/\D/g, '') : '';
 
     if (cep != '') {
       if (this.validaCEP(cep)) {
+        this.resetaDadosEndereco(form);
         this.http
           .get(`//viacep.com.br/ws/${cep}/json`)
           .pipe(map((dados: any) => dados))
-          .subscribe((dadosJson: any) => console.log(dadosJson));
+          .subscribe((dadosJson: any) => this.populaDadosForm(dadosJson, form));
       }
     }
   }
@@ -43,5 +44,29 @@ export class TemplateFormComponent implements OnInit {
   validaCEP(cep: string): boolean {
     const validacao = /^[0-9]{8}$/;
     return validacao.test(cep);
+  }
+
+  populaDadosForm(dados: any, f: NgForm) {
+    f.form.patchValue({
+      endereco: {
+        cep: dados.cep,
+        rua: dados.logradouro,
+        bairro: dados.bairro,
+        cidade: dados.localidade,
+        estado: dados.uf,
+      },
+    });
+  }
+
+  resetaDadosEndereco(f: NgForm) {
+    f.form.patchValue({
+      endereco: {
+        cep: null,
+        rua: null,
+        bairro: null,
+        cidade: null,
+        estado: null,
+      },
+    });
   }
 }
