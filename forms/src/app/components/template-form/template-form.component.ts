@@ -15,15 +15,10 @@ export class TemplateFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onSubmitForm(form: NgForm) {
-    // console.log(form.valid);
-    console.log(
-      `NgModelGroup (Endereço): ${JSON.stringify(
-        this.endereco.value,
-        null,
-        ' '
-      )}`
-    );
+  onSubmitForm(f: NgForm) {
+    this.http
+      .post('https://httpbin.org/post', JSON.stringify(f.value))
+      .subscribe((res: any) => console.log(res));
   }
 
   consultaCEP(cep: string, form: NgForm): void {
