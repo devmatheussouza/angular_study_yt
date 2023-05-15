@@ -1,1 +1,37 @@
-<p>data-form works!</p>
+<h1 class="mb-3">Data Driven Form</h1>
+
+<form [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="form-group row mb-3">
+    <div class="col-sm-12">
+      <label for="nome" class="form-label fw-bold">Nome*</label>
+    </div>
+
+    <div class="col-sm-12">
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        formControlName="nome"
+        placeholder="Digite seu nome"
+      />
+    </div>
+  </div>
+
+  <div class="form-group row mb-3">
+    <div class="col-sm-12">
+      <label for="email" class="form-label fw-bold">Email*</label>
+    </div>
+
+    <div class="col-sm-12">
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        formControlName="email"
+        placeholder="exemplo@email.com"
+      />
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+</form>

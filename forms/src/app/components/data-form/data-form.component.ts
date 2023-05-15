@@ -17,4 +17,8 @@ export class DataFormComponent implements OnInit {
       email: [null],
     });
   }
+
+  onSubmit(): void {
+    console.log(this.formulario.value);
+  }
 }
